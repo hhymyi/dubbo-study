@@ -1,7 +1,11 @@
 package com.hhymyi.provider.dao;
 
 import com.hhymyi.entity.Message;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface MessageMapper {
@@ -16,4 +20,7 @@ public interface MessageMapper {
     int updateByPrimaryKeySelective(Message record);
 
     int updateByPrimaryKey(Message record);
+
+    @Select("select * from message")
+    List<Map<String,Object>> getList();
 }
